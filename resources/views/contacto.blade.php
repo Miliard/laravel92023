@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>contacto</title>
-</head>
-<body>
+@extends('layouts.app')
+@section('title', 'Contact')
 
- @include('partials.navigation')
-    <h1>contacto</h1>
-</body>
-</html>
+@section('meta-description', 'Contact meta description')
+@section('content')
+
+<h1>Contacnto </h1>
+@endsection
