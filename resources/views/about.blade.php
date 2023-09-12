@@ -7,3 +7,4 @@
 
 <h1>Acerca de mi </h1>
 @endsection
+
