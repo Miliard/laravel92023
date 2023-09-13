@@ -1,10 +1,11 @@
-@extends('layouts.app')
+<x-layouts.app>
 
-@section('title', 'Blog')
 
-@section('meta-description', 'Blog meta description')
+<h1>blog </h1>
 
-@section('content')
+@foreach ($posts as $post)
+   <h2> {{ $post ['title'] }} </h2>   
+@endforeach
 
-<h1>Blog</h1>
-@endsection
+</x-layouts.app>
+
