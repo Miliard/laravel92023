@@ -19,7 +19,7 @@ class PostController extends Controller
 
     public function show (Post $post)
     {
-      return view('posts.show', ['post' => $post]); 
+      return view('posts.show', ['post' => $post]);
     }
 
     public function create ()
@@ -34,6 +34,8 @@ class PostController extends Controller
     $post->title = $request->input('title');
     $post->body = $request->input('body');
     $post->save();
+
+    session()->flash('status', 'POST HA SIDO CREADO CORRECTAMENTE');
 
     return to_route('posts.index');
   }

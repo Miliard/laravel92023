@@ -1,20 +1,22 @@
 <x-layouts.app>
 
 
-   <h1>blog </h1>
 
-   <a href="{{ route('posts.create') }}">Creat new post</a>
 
-   @foreach ($posts as $post)
-   <h2>
+    <h1>blog </h1>
 
-      <a href="{{ route('posts.show', $post) }}">
+    <a href="{{ route('posts.create') }}">Creat new post</a>
 
-         {{ $post->title }}
+    @foreach ($posts as $post)
+    <h2>
 
-      </a>
+        <a href="{{ route('posts.show', $post) }}">
 
-   </h2>
-   @endforeach
+            {{ $post->title }}
+
+        </a>
+
+    </h2>
+    @endforeach
 
 </x-layouts.app>
