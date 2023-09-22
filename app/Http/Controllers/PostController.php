@@ -17,26 +17,32 @@ class PostController extends Controller
         return view('posts.index', ['posts' => $posts]);
     }
 
-    public function show (Post $post)
+    public function show(Post $post)
     {
-      return view('posts.show', ['post' => $post]);
+        return view('posts.show', ['post' => $post]);
     }
 
-    public function create ()
+    public function create()
     {
-      return view('posts.create');
+        return view('posts.create');
     }
 
-    public function store (Request $request)
-  {
+    public function store(Request $request)
+    {
 
-    $post = new Post;
-    $post->title = $request->input('title');
-    $post->body = $request->input('body');
-    $post->save();
+        $request->validate([
+            'title' => ['required','min:4'],
+            'body' => ['required']
+        ]);
 
-    session()->flash('status', 'POST HA SIDO CREADO CORRECTAMENTE');
 
-    return to_route('posts.index');
-  }
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        session()->flash('status', 'POST HA SIDO CREADO CORRECTAMENTE');
+
+        return to_route('posts.index');
+    }
 }

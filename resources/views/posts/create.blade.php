@@ -1,34 +1,46 @@
 <x-layouts.app>
 
 
-  <h1> Create new post</h1>
+    <h1> Create new post</h1>
 
-  <form action="{{ route('posts.store') }}" method="POST" >
-    @csrf
 
-    <label for="POST">
 
-      Title <br>
+    <form action="{{ route('posts.store') }}" method="POST">
+        @csrf
 
-      <input name="title" type="text">
+        <label for="POST">
 
-    </label> <br>
+            Title <br>
 
-    <label for="">
+            <input name="title" type="text" value="{{old('title')}}">
 
-      Body <br>
+            @error('title')
 
-      <textarea name="body">
+                <br>
+                <small style="color: red"> {{ $message }}</small>
+            @enderror
 
-      </textarea>
+        </label> <br>
 
-    </label> <br>
+        <label for="">
 
-    <button type="submit">Enviar</button>
+            Body <br>
+
+            <textarea name="body" >{{old('body')}}</textarea>
+
+            @error('body')
+
+                <br>
+                <small style="color: red"> {{ $message }}</small>
+            @enderror
+
+        </label> <br>
+
+        <button type="submit">Enviar</button>
+        <br>
+
+    </form>
     <br>
-
-  </form>
-  <br>
-  <a href="{{ route('posts.index') }}">Regresar</a>
+    <a href="{{ route('posts.index') }}">Regresar</a>
 
 </x-layouts.app>
