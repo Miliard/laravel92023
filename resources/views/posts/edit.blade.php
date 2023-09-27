@@ -4,7 +4,7 @@
     <h1> Edit Form</h1>
 
     <form action="{{ route('posts.update', $post) }}" method="POST">
-        @csrf
+        @csrf @method('PATCH')
 
         <label for="POST">
 
