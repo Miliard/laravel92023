@@ -6,7 +6,7 @@
     <form action="{{ route('posts.update', $post) }}" method="POST">
         @csrf @method('PATCH')
 
-        <label for="POST">
+        {{--  <label for="POST">
 
             Title <br>
 
@@ -32,7 +32,9 @@
                 <small style="color: red"> {{ $message }}</small>
             @enderror
 
-        </label> <br>
+        </label> <br>  --}}
+
+        @include('posts.form-fields')
 
         <button type="submit">Enviar</button>
         <br>
