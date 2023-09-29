@@ -35,9 +35,8 @@ class PostController extends Controller
 
         Post::create($request->validated());
 
-        session()->flash('status', 'POST HA SIDO CREADO CORRECTAMENTE');
 
-        return to_route('posts.index')->witch('status');
+        return to_route('posts.index')->witch('status', 'Post creado');
     }
 
     public function edit(Post $post)
@@ -55,10 +54,10 @@ class PostController extends Controller
         // $post->body = $request->input('body');
         // $post->save();
 
-        $post->update($request->validated);
+        $post->update($request->validated());
 
         session()->flash('status', 'El post se actualizo correctamente');
 
-        return to_route('posts.show', $post);
+        return to_route('posts.show', $post)->with('status', 'El post se actualizo correctamente');
     }
 }
