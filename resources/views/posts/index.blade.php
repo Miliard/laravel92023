@@ -7,21 +7,29 @@
 
     @foreach ($posts as $post)
 
-   <div style="display: flex; align-items: baseline">
+    <div style="display: flex; align-items: baseline">
 
-    <h2>
+        <h2>
 
-        <a href="{{ route('posts.show', $post) }}">
+            <a href="{{ route('posts.show', $post) }}">
 
-            {{ $post->title }}
+                {{ $post->title }}
 
-        </a>
+            </a>
 
-    </h2>&nbsp;
+        </h2>&nbsp;
 
-    <a href="{{ route('posts.edit', $post)}}">Edit</a>
+        <a href="{{ route('posts.edit', $post)}}">Edit</a>&nbsp;
 
-   </div>
+        <form action="{{ route('posts.destroy', $post) }}" method="POST">
+
+             @csrf
+             @method('DELETE')
+
+             <button type="submit"> Delete</button>
+
+        </form>
+    </div>
 
     @endforeach
 
