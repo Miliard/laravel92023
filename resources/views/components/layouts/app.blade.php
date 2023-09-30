@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Apredible - {{ $tittle ?? '' }} </title>
   {{-- <meta name="description" content="@yield('meta-description', 'Default meta description')"/> --}}
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
