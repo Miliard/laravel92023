@@ -36,7 +36,9 @@ class PostController extends Controller
         Post::create($request->validated());
 
 
-        return to_route('posts.index')->witch('status', 'Post creado');
+        // return to_route('posts.index')->witch('status', 'Post creado');
+        return redirect()->route('posts.index')->with('status', 'Post creado');
+
     }
 
     public function edit(Post $post)
