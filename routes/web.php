@@ -2,24 +2,44 @@
 
 use App\Http\Controllers\PostController;
 use App\Models\Post;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 
 
 
+// Route::view('/', 'welcome')->name('home');
+// Route::view('/contacto', 'contacto')->name('contact');
+
+// Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
+
+// Route::get('/blog/create', [PostController::class, 'create'])->name('posts.create');
+// Route::post('/blog', [PostController::class, 'store'])->name('posts.store');
+// Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');
+
+// Route::get('/blog/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+
+// Route::patch('/blog/{post}', [PostController::class, 'update'])->name('posts.update');
+// Route::delete('/blog/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+
 Route::view('/', 'welcome')->name('home');
 Route::view('/contacto', 'contacto')->name('contact');
 
-Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
+// Rutas CRUD para los posts
+Route::resource('blog', PostController::class, [
 
-Route::get('/blog/create', [PostController::class, 'create'])->name('posts.create');
-Route::post('/blog', [PostController::class, 'store'])->name('posts.store');
-Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');
+  'names' => 'posts',
+  'parameters' => ['blog' => 'post']
 
-Route::get('/blog/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+]);
 
-Route::patch('/blog/{post}', [PostController::class, 'update'])->name('posts.update');
-Route::delete('/blog/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+
 
 
 Route::view('/about', 'about')->name('about');
+
+Route::get('/login', function(){
+
+    return 'login page';
+
+})->name('login');
