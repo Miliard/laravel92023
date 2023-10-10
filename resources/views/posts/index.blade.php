@@ -22,7 +22,7 @@
             </h2>
 
             @auth
-                <div class="flex justify-between">
+            <div class="flex justify-between">
                 <a class="inline-flex items-center text-xs font-semibold tracking-widest text-center uppercase transition duration-150 ease-in-out dark:text-slate-400 text-slate-500 hover:text-slate-600 dark:hover:text-slate-500 focus:outline-none focus:border-slate-200"
                     href="{{ route('posts.edit', $post) }}">Edit</a>
 

@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PostController;
 use App\Models\Post;
 use GuzzleHttp\Middleware;
@@ -40,6 +40,9 @@ Route::view('/about', 'about')->name('about');
 
 Route::get('/login', function(){
 
-    return 'login page';
+    return 'login pagina';
 
 })->name('login');
+
+Route::view('/register', 'auth.register')->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store']);
