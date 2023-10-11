@@ -28,7 +28,7 @@ class RegisteredUserController extends Controller
         'password' => bcrypt($request->password),
     ]);
 
-    // Auth::login($user);
+
     return to_route('login')->with('status', 'Cuenta creada');
 
    }
